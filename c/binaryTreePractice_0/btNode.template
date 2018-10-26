@@ -1,0 +1,107 @@
+//namespace binary_tree_template
+//{
+    template <class Item>
+btNode<Item>::btNode() : bst_root(0) {};
+
+template <class Item>
+btNode<Item>::~btNode()
+{
+    deleteTree(bst_root);
+}
+
+template <class Item>
+void btNode<Item>::insert(nodes*& bst_root, Item insInt)
+{
+    if (bst_root == 0)
+    {
+        bst_root = new nodes;
+        bst_root->data = insInt;
+        bst_root->left = bst_root->right = 0;
+    }
+    else if (insInt <= bst_root->data)
+        insert(bst_root->left, insInt);
+    else if (insInt > bst_root->data)
+        insert(bst_root->right, insInt);
+}
+
+template <class Item>
+void btNode<Item>::insert(Item insInt)
+{
+    insert(bst_root, insInt);
+}
+
+template <class Item>
+void btNode<Item>::displayPreOrder(nodes* bst_root) const
+{
+    if (bst_root != 0)
+    {
+        cout << bst_root->data << " ";
+        displayPreOrder(bst_root->left);
+        displayPreOrder(bst_root->right);
+    }
+}
+
+template <class Item>
+void btNode<Item>::displayInOrder(nodes* bst_root) const
+{
+    if (bst_root != 0)
+    {
+        displayInOrder(bst_root->left);
+        cout << bst_root->data << " ";
+        displayInOrder(bst_root->right);
+    }
+}
+
+template <class Item>
+void btNode<Item>::displayPostOrder(nodes* bst_root) const
+{
+    if (bst_root != 0)
+    {
+        displayPostOrder(bst_root->left);
+        displayPostOrder(bst_root->right);
+        cout << bst_root->data << " ";
+    }
+}
+
+template <class Item>
+void btNode<Item>::deleteTree(nodes*& bst_root)
+{
+    if (bst_root != 0)
+    {
+        deleteTree(bst_root->left);
+        deleteTree(bst_root->right);
+        delete bst_root;
+        bst_root = 0;
+    }
+}
+
+template <class Item>
+void btNode<Item>::deleteTree()
+{
+    deleteTree(bst_root);
+}
+
+template <class Item>
+bool btNode<Item>::isEmpty(nodes* bst_root) const
+{
+    return (bst_root == 0);
+}
+
+template <class Item>
+bool btNode<Item>::isEmpty()
+{
+    return isEmpty(bst_root);
+}
+
+template <class Item>
+int btNode<Item>::depth(nodes* bst_root) const
+{
+    if (bst_root == 0) return -1;
+    else
+    {
+        int left_depth = 1 + depth(bst_root->left);
+        int right_depth = 1 + depth(bst_root->right);
+        return left_depth < right_depth ? right_depth : left_depth;
+    }
+}
+//}

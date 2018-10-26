@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1510441098 source:c:\users\owner\documents\programming_practice\computer_programming_practice_1\number_list\number_list_driver.cpp
+	<iostream>
+	<cstdlib>
+	"Number_List.h"
+
+1510440049 c:\users\owner\documents\programming_practice\computer_programming_practice_1\number_list\number_list.h
+	<iostream>
+
+1510441038 source:c:\users\owner\documents\programming_practice\computer_programming_practice_1\number_list\number_list.cpp
+	<iostream>
+	"Number_List.h"
+

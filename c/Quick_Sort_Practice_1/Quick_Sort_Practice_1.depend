@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1510378008 source:c:\users\owner\documents\programming_practice\computer_programming_practice_1\quick_sort_practice_1\quicksort.cpp
+
+1510376795 source:c:\users\owner\documents\programming_practice\computer_programming_practice_1\quick_sort_practice_1\quicksortdriver.cpp
+	<iostream>
+	<cstdlib>
+	"QuickSort.h"
+
+1510377235 c:\users\owner\documents\programming_practice\computer_programming_practice_1\quick_sort_practice_1\quicksort.h
+	"QuickSort.cpp"
+
+1510379684 c:\users\owner\documents\programming_practice\computer_programming_practice_1\quick_sort_practice_1\quicksort.cpp
+	<iostream>
+

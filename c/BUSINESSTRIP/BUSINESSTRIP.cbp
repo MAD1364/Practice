@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="BUSINESSTRIP" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/BUSINESSTRIP" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/BUSINESSTRIP" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="BUSINESS_TRIP.h" />
+		<Unit filename="Computer_Programming_Practice_185.cpp" />
+		<Unit filename="car_rentals.cpp" />
+		<Unit filename="conference_or_seminar_fees.cpp" />
+		<Unit filename="days_on_business.cpp" />
+		<Unit filename="departure_return_times.cpp" />
+		<Unit filename="hotel_meals_parking_fees.cpp" />
+		<Unit filename="miles_driven.cpp" />
+		<Unit filename="round_trip_airfare.cpp" />
+		<Unit filename="taxi_fees.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

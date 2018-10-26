@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1520656058 source:c:\users\owner\documents\programming_practice\computer_programming_practice_1\binarytreepractice_2\binarytreedriver_2.cpp
+	"btNode.h"
+	<iostream>
+
+1520654625 c:\users\owner\documents\programming_practice\computer_programming_practice_1\binarytreepractice_2\btnode.h
+	<iostream>
+
+1520655826 source:c:\users\owner\documents\programming_practice\computer_programming_practice_1\binarytreepractice_2\btnode.cpp
+	"btNode.h"
+	<iostream>
+
