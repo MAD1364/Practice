@@ -1,7 +1,3 @@
-// Only works for identifying pairs if a single pair exists. In other words, the input for this code must have each element be unique
-// in order for the result to be accurate. A hash table or a different configuration of the elements of the unordered_map must be used
-// to detect multiple reciprocated pairs implicating the same nodes (i.e. (1, 2), (2, 1), (1, 2), (2, 1) would be two reciprocated pairs)
-
 #include <iostream>
 #include <unordered_map>
 #include "Pairs.h"
@@ -20,13 +16,16 @@ int main()
     Pairs fourToTwo(4, 2);
     Pairs sixToOne(6, 1);
     Pairs sevenToTwo(7, 2);
-    Pairs sevenToThree(7, 3);
-    Pairs threeToSeven(3, 7);
-    Pairs twoToSeven(2, 7);
+    //Pairs sevenToThree(7, 3);  won't work because key already exists in sevenToTwo
+    //Pairs threeToSeven(3, 7);  similarly for threeToOne
+    //Pairs twoToSeven(2, 7);    and twoToFour
+    Pairs nineToTen(9, 10);
+    Pairs tenToNine(10, 9);
+    Pairs seventyToEight(70, 8);
 
     Pairs graph[] = {oneToThree, twoToFour, threeToOne, fiveToOne,
-                     fourToTwo, sixToOne, sevenToTwo, sevenToThree,
-                     threeToSeven, twoToSeven};
+                     fourToTwo, sixToOne, sevenToTwo, nineToTen,
+                     tenToNine, seventyToEight};
 
     numRecPairs = reciprocatedPairs(graph, arrSize);
 

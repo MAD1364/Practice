@@ -20,6 +20,13 @@ public:
     // Accessors
     int getSource() { return source; }
     int getDestination() { return destination; }
+
+    // must overload == operator in order to compare when using
+    // Pairs objects as keys in hash-type contexts
+    bool operator==(const Pairs& other) const
+    {
+        return  source == other.source && destination == other.destination;
+    }
 };
 
 #endif
