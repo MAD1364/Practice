@@ -1,3 +1,7 @@
+// Only works for identifying pairs if a single pair exists. In other words, the input for this code must have each element be unique
+// in order for the result to be accurate. A hash table or a different configuration of the elements of the unordered_map must be used
+// to detect multiple reciprocated pairs implicating the same nodes (i.e. (1, 2), (2, 1), (1, 2), (2, 1) would be two reciprocated pairs)
+
 #include <iostream>
 #include <unordered_map>
 #include "Pairs.h"
