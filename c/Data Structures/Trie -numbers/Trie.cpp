@@ -80,6 +80,8 @@ bool Trie::contains(int key) const
     else return true;
 }
 
+// Function to count the total amount of elements in the Trie using a
+// DFS algorithm based on traversing the Trie with a stack
 int Trie::numbers() const
 {
     if (!root) return 0;
