@@ -105,3 +105,33 @@ int Trie::numbers() const
 
     return total_numbers;
 }
+
+std::ostream& operator<<(std::ostream& out, Trie& numbers)
+{
+    if (!numbers.root) out << "{ } Empty Trie" << std::endl;
+    else
+    {
+        int multiplier = 1;
+
+        for (int i = 0; i < 10; i++)
+        {
+            if (numbers.root->digits[i])
+                numbers.displayRecursively(out, numbers.root->digits[i], i*multiplier, multiplier);
+        }
+    }
+
+    return out;
+}
+
+void Trie::displayRecursively(std::ostream& out, TrieNode* root, int number, int multiplier)
+{
+    if (root->last_digit) out << number << std::endl;
+
+    multiplier *= 10;
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (root->digits[i])
+            displayRecursively(out, root->digits[i], i*multiplier + number, multiplier);
+    }
+}

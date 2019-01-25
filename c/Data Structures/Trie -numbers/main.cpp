@@ -48,5 +48,9 @@ int main()
     if (number_trie.contains(9)) cout << "9\n";
     if (number_trie.contains(0)) cout << "0\n";
 
+    cout << endl << endl
+         << "Display elements of Trie using overloaded insertion '<<' operator: " << endl
+         << number_trie << endl;
+
     return 0;
 }
