@@ -123,7 +123,7 @@ std::ostream& operator<<(std::ostream& out, Trie& numbers)
     return out;
 }
 
-void Trie::displayRecursively(std::ostream& out, TrieNode* root, int number, int multiplier)
+void Trie::displayRecursively(std::ostream& out, TrieNode* root, int number, int multiplier) const
 {
     if (root->last_digit) out << number << std::endl;
 

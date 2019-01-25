@@ -2,6 +2,7 @@
 #define TRIE
 
 #include "TrieNode.h"
+#include <iostream>
 
 class Trie {
 public:
@@ -15,7 +16,7 @@ public:
     bool contains(int) const;
     int numbers() const;
     int size() const {return total;}
-    void displayRecursively(std::ostream&, TrieNode*, int, int); // used by friend function
+    void displayRecursively(std::ostream&, TrieNode*, int, int) const; // used by friend function
 
     // friend function which has access to all members of class it is a friend of (private and public)
     friend std::ostream& operator<<(std::ostream&, Trie&);
