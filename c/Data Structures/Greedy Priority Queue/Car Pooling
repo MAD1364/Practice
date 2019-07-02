@@ -1,0 +1,62 @@
+class Solution {
+public:
+    struct compareByTripBeginning {
+        bool operator()(const vector<int>& a, const vector<int>& b) {return a[1] < b[1];}
+    };
+    
+    struct priorityCompare {
+        bool operator()(const std::pair<int, int>& a, const std::pair<int, int>& b) {return a.second > b.second;}
+    };
+    
+    /* Greedy Solution: O(nlogn) due to sorting of the elements in the array. However, once all information for each trip, recording as
+                        three-element vectors, are sorted, the remaining procedure is linear or has a linear time complexity. Using the
+                        same approach as with determining the greatest cardinality of a subset of a set of task that can be completed one
+                        after the other, the algorithm below relies on information about how many tasks can be completed concurrently
+                        using the capacity of the transportation device and one after the other based on the end and start times of trips.
+                        A priority queue is used with a custom comparator to compare trips by the end time of each in order to maintain
+                        knowledge about the earliest ending trip at any time throughout processing of trips. This helps inform whether the
+                        trips that have been processed have either been completed or continue and if the latter whether the transportation
+                        device has sufficient space remaining to accommodate the passengers of the current trip under consideration. The
+                        while loop provides a means by which to recuperate space in the transporation device assuming a trip with a later
+                        start time than the end time of the earliest ending trip(s) is being processed.
+    */
+    bool carPooling(vector<vector<int>>& trips, int capacity) {
+        int t = trips.size(), // amount of trips to consider in determining whether all trips can be made from west to east only
+            occupied = 0;
+        
+        sort(trips.begin(), trips.end(), compareByTripBeginning());
+        
+        priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, priorityCompare> trip_index;
+        
+        for (int i = 0; i < t; ++i)
+        {
+            if (trip_index.empty())
+            {
+                if (trips[i][0] > capacity) return false; // cannot accommodate passengers trip requires
+                else
+                {
+                    occupied += trips[i][0]; // account for the passengers trip requires
+                    trip_index.push({i, trips[i][2]});
+                }
+            }
+            else
+            {
+                while (!trip_index.empty() && trips[i][1] >= trips[trip_index.top().first][2])
+                {
+                    occupied -= trips[trip_index.top().first][0];
+                    trip_index.pop();
+                }
+                
+                if (trips[i][1] < trips[trip_index.top().first][2] && occupied + trips[i][0] <= capacity)
+                {
+                    trip_index.push({i, trips[i][2]}); // maintain information about when trip ends
+                    occupied += trips[i][0]; // include passengers for this trip
+                }
+                else if (trip_index.empty()) {occupied += trips[i][0]; trip_index.push({i, trips[i][2]});}
+                else return false;
+            }
+        }
+        
+        return true;
+    }
+};
